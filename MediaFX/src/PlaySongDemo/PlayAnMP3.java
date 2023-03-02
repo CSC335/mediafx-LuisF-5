@@ -1,5 +1,5 @@
 package PlaySongDemo;
-
+// Luis Felix
 /**
  * This code will play any song assuming that file is in folder songfiles. 
  * 
@@ -28,6 +28,9 @@ public class PlayAnMP3 extends Application {
   @Override
   public void start(Stage stage) throws Exception {
     BorderPane pane = new BorderPane();
+    
+    //I would have changed the file, but I love this song.
+    //Also, this sound is from Pokemon Heart Gold and Soul Silver.
     String path = "songfiles/Capture.mp3";
     pane.setCenter( new Label(path));
     playASong(path);
@@ -38,6 +41,15 @@ public class PlayAnMP3 extends Application {
     stage.show();
   }
 
+  // I, Luis Felix, also switched the order of the class and the method.
+  private class Waiter implements Runnable {
+	    @Override
+	    public void run() {
+	      songsPlayed++;
+	      System.out.println("Song ended, play song #" + songsPlayed);
+	      Platform.exit();
+	    }
+	  }
   
   private void playASong(String path) {
    
@@ -54,13 +66,5 @@ public class PlayAnMP3 extends Application {
     System.out.println("You may need to shut this App down");
  
     }
-  
-  private class Waiter implements Runnable {
-    @Override
-    public void run() {
-      songsPlayed++;
-      System.out.println("Song ended, play song #" + songsPlayed);
-      Platform.exit();
-    }
-  }
+
 }
